@@ -8,10 +8,11 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchImage = async () => {
-      const response = await fetch("https://api.unsplash.com/photos/?client_id=QCDK1fmrgvGrpecrLwGZT8MA-7pJSsSkPPliAtbTcVY");
+      const response = await fetch("https://api.unsplash.com/photos/?client_id=QCDK1fmrgvGrpecrLwGZT8MA-7pJSsSkPPliAtbTcVY&per_page=100");
       const data = await response.json();
+      console.log(data)
       // I am spreading the data and adding a ref property to each image so that I can access it inside it's children
-      const imagesWithRefs = data.map(image => ({ ...image, ref: React.createRef() }));
+      const imagesWithRefs = data?.map(image => ({ ...image, ref: React.createRef() }));
       setTotalImages(imagesWithRefs);
     }
     fetchImage()
@@ -36,6 +37,7 @@ export const Home = () => {
               src={item.urls.regular}
               alt={item.description} 
               onLoad={() => handleImageLoad(item.ref)}
+              loading='lazy'
             />  
           </div>
         ))
