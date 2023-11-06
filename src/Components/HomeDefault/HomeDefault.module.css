@@ -1,0 +1,41 @@
+.homepage{
+    background-image: url('https://cdn.shopify.com/s/files/1/0070/7032/files/image6_3fa89ca0-da9a-4dd5-b587-ef408b012ffc.png?format=jpg&quality=90&v=1694804649&width=1024');
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+    display: flex;
+    background-position: center center;
+    justify-content: space-around;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+}
+.heading{
+    font-size: 70px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.form{
+    width: 484px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    min-height: initial;
+}
+
+.google{
+border: 0px;
+height: 40px;
+border-radius: 20px;
+padding: 0px 18px;
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+margin-top: 8px;
+text-align: center;
+background-color: rgb(230, 0, 35);
+color: rgb(255, 255, 255);
+}
