@@ -1,17 +1,29 @@
 .homepage{
-    background-image: url('https://cdn.shopify.com/s/files/1/0070/7032/files/image6_3fa89ca0-da9a-4dd5-b587-ef408b012ffc.png?format=jpg&quality=90&v=1694804649&width=1024');
+    background-image: url('../../Assets/background.png');
     background-repeat: no-repeat;
     height: 90vh;
-    width: 100vw;
+    width: 100%;
     background-size: cover;
     display: flex;
     background-position: center center;
     justify-content: space-around;
+    position: relative;
+}
+
+.homepageBackground{
+    background-color: rgb(0 0 0 / 78%);;
+    height: 90vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .text{
     display: flex;
     align-items: center;
+    z-index: 122;
+
 }
 .heading{
     font-size: 70px;
@@ -24,6 +36,7 @@
     background-color: rgb(255, 255, 255);
     text-align: center;
     min-height: initial;
+    z-index: 122;
 }
 
 .google{

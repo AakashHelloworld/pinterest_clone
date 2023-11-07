@@ -7,11 +7,15 @@ import { Provider } from 'react-redux'
 import { HomeDefault } from './Components/HomeDefault/HomeDefault';
 import { Home } from './Components/Home/Home';
 import { PinImage } from './Components/PinImage/PinImage';
+import { store } from './Store/store';
+import Auth from './Components/Auth';
 
 const router=createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route path='' element={(
+        <Auth>
         <Home/>
+        </Auth>
       )}/> 
       <Route path='/pin/:id' element={<PinImage/>} />
     </Route>
@@ -21,7 +25,9 @@ const router=createBrowserRouter(createRoutesFromElements(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+      <Provider store={store}>
       <RouterProvider router={router}/>
+      </Provider>
   </React.StrictMode>
 );
 

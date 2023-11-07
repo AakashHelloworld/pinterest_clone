@@ -5,9 +5,10 @@ import {ImSearch} from "react-icons/im"
 import {AiFillMessage} from "react-icons/ai"
 import {MdNotificationsActive} from "react-icons/md"
 import {ImCross} from "react-icons/im"
+import { useSelector } from 'react-redux'
 export const Navbar = () => {
+    const userName=useSelector(state=>state.userName)
     const [inputactive, setinputactive] = React.useState(true)
-
 
   return (
     <div className={style.navbar}>
@@ -45,7 +46,7 @@ export const Navbar = () => {
             <MdNotificationsActive className={style.notificationIcon}/>
             <AiFillMessage className={style.messageIcon} />
             <div className={style.profile}>
-                    <span>A</span>
+                    <span>{ userName[0]}</span>
             </div>
         </div>
 
