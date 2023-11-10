@@ -2,36 +2,42 @@ import React, { useEffect, useRef} from 'react'
 import { useParams } from 'react-router-dom'
 import style from "./PinImage.module.css"
 import {FiArrowLeft} from "react-icons/fi"
+import { getDocument } from '../../Appwrite/api'
 export const PinImage = () => {
   const {id} = useParams();
-  const [image, setImage] = React.useState("")
+  const [image, setImage] = React.useState({})
+  
   const imageRef = useRef(null);
   useEffect(()=>{
     if(id){
-    const fetchImage = async () => {
-      console.log(id)
-      const response = await fetch(`https://api.unsplash.com/photos/:${id}?client_id=QCDK1fmrgvGrpecrLwGZT8MA-7pJSsSkPPliAtbTcVY`);
-      const data = await response.json();
-      console.log(data)
-      setImage("https://images.unsplash.com/photo-1695219770898-c8aa56fb111a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MjQ5NTN8MHwxfGFsbHwyMHx8fHx8fDJ8fDE2OTkyODQ1NTJ8&ixlib=rb-4.0.3&q=80&w=1080")
-
-    }
-    fetchImage()
+      const fetchDocument = async ()=>{
+        const response = await getDocument(id);
+        console.log(response);   
+        if(response?.title){
+          setImage(response)
+        }
+      }
+      fetchDocument();
   }
   }, [id])
 
   const handleImageLoad = (imgRef) => {
     console.log(imgRef.current.naturalHeight)
 
-    const imgHeight = `${(imgRef.current.naturalHeight)/2}px`;
+    if(imgRef.current.naturalHeight > 3000){
+      const imgHeight = `${(imgRef.current.naturalHeight)/6}px`;
+      imgRef.current.parentNode.style.height = imgHeight;
+    }else{
+    const imgHeight = `${(imgRef.current.naturalHeight)/3}px`;
     imgRef.current.parentNode.style.height = imgHeight;
+    }
   };
 
   return (
     <div className={style.pinPage}>
       <div className={style.pin} >
         <div className={style.image}>
-            <img src={image} className={style.pinImage} ref={imageRef} alt="image" onLoad={() => handleImageLoad(imageRef)} />
+            <img src={image?.imageId?.href} className={style.pinImage} ref={imageRef} alt="image" onLoad={() => handleImageLoad(imageRef)} />
         </div>
 
         <div className={style.text}>
@@ -43,7 +49,9 @@ export const PinImage = () => {
 
         <div className={style.profilePic}>
         <div className={style.profilePicContainer}>
-        <img className={style.avatar} src="https://img.freepik.com/premium-photo/cartoon-game-avatar-logo-gaming-brand_902820-467.jpg" alt="profile" />
+        <div className={style.avatar} >
+        {image?.userName?.slice(0,1).toUpperCase()}
+        </div>
         </div>
           <button className={style.follow}>Follow</button>
       </div>

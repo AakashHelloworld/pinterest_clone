@@ -6,7 +6,9 @@ import {AiFillMessage} from "react-icons/ai"
 import {MdNotificationsActive} from "react-icons/md"
 import {ImCross} from "react-icons/im"
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 export const Navbar = () => {
+    const navigate = useNavigate();
     const userName=useSelector(state=>state.userName)
     const [inputactive, setinputactive] = React.useState(true)
 
@@ -19,8 +21,10 @@ export const Navbar = () => {
 
     {/* buttons */}
         <div>
-            <button className={style.homebutton}>Home</button>
-            <button className={style.createbutton}>Create</button>
+            <button className={style.homebutton}
+            onClick={() => navigate('/')}
+            >Home</button>
+            <button className={style.createbutton} onClick={() => navigate('create')}>Create</button>
         </div>
 
     {/* search */}
