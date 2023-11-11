@@ -28,7 +28,6 @@
 .inputfile{
     padding: 2rem 3rem;
     border: none;
-    height: 30rem;
     background-color: #e9e9e9;
 
 }
@@ -91,5 +90,33 @@
 }
 
 .imageSelected{
-    image-resolution: from-image;
+    width: 100%;
+}
+
+
+
+
+@media (max-width: 677px) {
+    .pinImageCreate{
+        display: flex;  
+        flex-direction: column; 
+    }
+
+    .imageUploadContainer, .input{
+        width: 100%;
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        
+    }
+    .titleInput, .descriptionInput, .submit{
+
+        width: 90%;
+    }
+
+    
 }

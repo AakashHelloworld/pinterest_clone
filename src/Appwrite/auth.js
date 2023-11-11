@@ -8,10 +8,16 @@ const client = new Client()
 
 const account = new Account(client);
 
+
 const authwithGoogle = async () => {
   const response = account.createOAuth2Session('google', `http://localhost:3000`, `http://localhost:3000/pin/-HqcgTinxeE`)
   return response
 }
 
 
-export {account, authwithGoogle}
+const getUser = async (id) => {
+  const response = await account.get(id);
+  return response
+}
+
+export {account, authwithGoogle, getUser}

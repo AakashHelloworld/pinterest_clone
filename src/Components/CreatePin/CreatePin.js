@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux'
 import { createDocument } from '../../Appwrite/api'
 
 export const CreatePin = () => {
+    const imgRef = React.useRef()
     const [submitloading, setSubmitloading] = useState(false)
     const userName=useSelector(state=>state.userName)
+    const userId = useSelector(state=>state.id)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [selectedImage, setSelectedImage] = useState(null);
@@ -35,7 +37,8 @@ export const CreatePin = () => {
             title,
             description,
             imageId,
-            userId: userName
+            userName,
+            userId
         }
         const response = await createDocument(userData)
         console.log(response)
@@ -52,24 +55,13 @@ export const CreatePin = () => {
         <div className={style.pinImageCreate}>
 
             <div className={style.imageUploadContainer}> 
-            <label class={style.customfileupload} style={!selectedImage ?{ padding: "1rem 2rem"}:{padding:"0rem"}}>
+            <label class={style.customfileupload} style={{ padding: "1rem 2rem"}}>
                 <input type="file" 
                             onChange={(event) => {
                                 uploadImgeHandler(event)
-        }}
-                />
-                      {selectedImage ? (
-        <div className={style.imageSelectedContainer}>
-          <img
-            className={style.imageSelected}
-            alt="not found"
-            src={URL.createObjectURL(selectedImage)}
-          />
-          <br />
-        </div>
-      ) : (
-            <span>   Upload Image</span>  
-      )}
+                                }}/>
+
+                      {selectedImage ? (<span>Image Upload</span>):(<span>Upload Image</span>)}
             </label>
             </div>
 

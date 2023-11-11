@@ -14,7 +14,7 @@
 }
 
 .image{
-    width: 60%;
+    width: 508px;
 }
 
 .pinImage{
@@ -25,7 +25,6 @@
 .text{
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    width: 40%;
     padding: 2rem;
 }
 
@@ -85,6 +84,12 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50% 50%;
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
 }
 .profilePic{
     display: flex;
@@ -95,4 +100,52 @@
 .commentHeading{
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+
+
+@media (max-width: 1162px) {
+    .pin{
+        min-width: 750px;
+    }
+    .image{
+        min-width: 300px;
+    }
+
+
+}
+
+
+@media (max-width: 1060px) {
+    .pin{
+        min-width: 500px;
+        flex-direction: column;
+    }
+    .image{
+        width: 508px;
+    }
+
+}
+
+
+@media (max-width: 623px) {
+    .pin{
+        min-width: 300px;
+        /* display: flex; */
+        flex-direction: column;
+    }
+    .image{
+        width: 450px;
+    }
+
+}
+
+@media (max-width: 443px) {
+    .pin{
+        width: 250px;
+
+    }
+    .image{
+        width: 300px;
+    }
 }

@@ -10,6 +10,7 @@ import { PinImage } from './Components/PinImage/PinImage';
 import { store } from './Store/store';
 import Auth from './Components/Auth';
 import { CreatePin } from './Components/CreatePin/CreatePin';
+import { User } from './Components/User/User';
 
 const router=createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<App/>}>
@@ -27,6 +28,12 @@ const router=createBrowserRouter(createRoutesFromElements(
       <Route path="/create" element={
         <Auth>
         <CreatePin/>
+        </Auth>
+      }/>
+
+      <Route path="/user/:id" element={
+        <Auth>
+          <User />        
         </Auth>
       }/>
       </Route>

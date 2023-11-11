@@ -13,6 +13,7 @@
 
 .logo{
     height: 1.5rem;
+    cursor: pointer;
 }
 
 
@@ -75,6 +76,7 @@
     color: #333;
     margin-right: 5px;
     height: 16px;
+    cursor: pointer;
 }
 
 .search:focus{
@@ -108,5 +110,58 @@
     /* font-size: 40px; */
     font-weight: 500;
     color: rgb(17, 17, 17);
+    cursor: pointer;
 
+}
+
+@media (max-width: 1471px) {
+    .searchContainer{
+        min-width: 70%;
+    }
+
+
+}
+
+@media (max-width: 1238px) {
+    .searchContainer{
+        min-width: 65%;
+    }
+}
+
+@media (max-width: 1066px) {
+    .searchContainer{
+        min-width: 60%;
+    }
+    
+}
+
+
+@media (max-width: 934px) {
+    .searchContainer{
+        min-width: 55%;
+    }
+    
+}
+
+
+@media (max-width: 844px) {
+    .searchContainer{
+        min-width: 50%;
+    }
+    
+}
+
+@media (max-width: 753px) {
+    
+    .searchContainer, .messageIcon, .notificationIcon{
+        display: none;
+    }
+
+ .navbar{
+    display: flex;
+    justify-content: space-between;
+  
+}
+
+    
 }

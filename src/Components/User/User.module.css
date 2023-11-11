@@ -1,0 +1,62 @@
+
+.user{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-bottom: 3rem;
+
+}
+
+.avatar{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50% 50%;
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userdetail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    align-items: center;
+
+}
+
+
+.pinContainer{  
+    margin: 0px;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 252px);
+    grid-template-rows: 10px;
+    justify-content: center;
+}
+
+.pin{
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    width: 252px;
+}
+   .image{
+    margin: .5rem 1rem;
+    width: 100%;
+   }
+
+   .logout{
+    cursor: pointer;
+    margin-top: 1rem;
+    border: none;
+    height: 48px;
+    min-width: 90px;
+    background-color: #e9e9e9;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 8px;
+    color: black;
+
+   }

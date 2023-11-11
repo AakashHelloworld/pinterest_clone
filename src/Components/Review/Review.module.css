@@ -1,0 +1,74 @@
+.avatar{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50% 50%;
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.reviewCollectionStyle{
+    margin-top: 2rem;
+    width: 20rem;
+    height: 15rem;
+    overflow-y: scroll;
+}
+
+.reviewUser{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.reviewDiv{
+    margin-bottom: .2rem;
+}
+
+.reviewContent{
+    margin-top: -.1rem;
+    margin-left: 4rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.reviewInput{
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    width: 100%;
+    resize: none;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #e9e9e9;
+    color: #000;
+    box-sizing: border-box;
+}
+
+.reviewSubmit{
+    min-width: 100%;
+    background-color: #e60023;
+    color: white;
+    padding: 1rem;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.reviewCreate{
+    width: 100%;
+}
+
+@media (max-width: 1060px) {
+    .reviewInput{
+        width: 90%;
+    }
+    .reviewSubmit{
+        min-width: 90%;
+    }
+    
+}

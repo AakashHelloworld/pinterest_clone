@@ -1,5 +1,5 @@
 
-import { Client, Databases, ID, Storage } from "appwrite";
+import { Client, Databases, ID, Storage, Query } from "appwrite";
 
 const client = new Client().setEndpoint('https://cloud.appwrite.io/v1')
 .setProject('65475131669281e01d2b')
@@ -33,7 +33,7 @@ const getDocuments = async () => {
                $id:data.$id,
                imgUrl : await promise
             }
-            AllNeededData.push(temp)
+                AllNeededData.push(temp)
             data.imageId = await promise;
             return data;
         });
@@ -54,7 +54,9 @@ const getDocument = async (id) => {
             title: response.title,
             description: response.description,
             imageId: await promiseforImage,
-            userId: response.userId
+            id:response.$id  ,
+            userId: response.userId,
+            userName: response.userName
         }
         console.log(data)
         return data
@@ -65,4 +67,34 @@ const getDocument = async (id) => {
 
 
 
-export {createDocument, getDocuments ,getDocument}
+const getUserDocuments = async (id) => {
+    
+    try{
+        console.log(id)
+        const promise = databases.listDocuments('654db535ef091e9a5c3b', '654db54ce147f9d15a04',     
+        [
+            Query.equal("userId",id)
+        ]);
+        const response = await promise
+        const AllNeededData = []
+        const data =  response?.documents.map(async (data) => {
+            const promise = storage.getFilePreview('654a581fab6820b4531e', data.imageId);
+            const temp = {
+               $id:data.$id,
+               imgUrl : await promise
+            }
+            console.log(temp)
+            AllNeededData.push(temp)
+            data.imageId = await promise;
+            return data;
+        })
+
+        return AllNeededData
+    }catch{
+        console.log("error")
+    }
+}
+
+
+
+export {createDocument, getDocuments ,getDocument, getUserDocuments}

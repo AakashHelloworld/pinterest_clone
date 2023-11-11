@@ -3,6 +3,7 @@ import style from "./Home.module.css"
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { getDocuments } from '../../Appwrite/api'
+import handleImageLoad from "../../Utils/imageloadHandler"
 export const Home = () => {
   const navigate = useNavigate();
   const [totalImages, setTotalImages] = React.useState([])
@@ -16,17 +17,11 @@ export const Home = () => {
     fetchImage()
   },[])
 
-  const handleImageLoad = (imgRef) => {
-    //  I am taking the height of the image and dividing it by 10 to get the number of rows it should span
-    const imgHeight = imgRef.current.naturalHeight;
-    const gridRowEnd = 'span ' + Math.ceil(imgHeight / 10);
-    imgRef.current.parentNode.style.gridRowEnd = gridRowEnd;
-  };
 
   return (
     <div className={style.pinContainer}>
       { 
-        !!totalImages.length &&
+        !!totalImages?.length &&
         totalImages.map((item, index) => (
           <div className={style.pin} key={item.$id} onClick={()=> navigate(`/pin/${item.$id}`)}>
             <img
